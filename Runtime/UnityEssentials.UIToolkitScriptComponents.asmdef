@@ -1,13 +1,17 @@
 {
     "name": "UnityEssentials.UIToolkitScriptComponents",
-    "allowUnsafeCode": false,
-    "noEngineReferences": false,
-    "overrideReferences": false,
-    "autoReferenced": true,
     "rootNamespace": "UnityEssentials",
-    "references": [],
-    "precompiledReferences": [],
+    "references": [
+        "GUID:3274dc8bfffe62c4191ff7300b9071c8",
+        "GUID:52cfcc800872b5a42beb3d0feda1d60c"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "defineConstraints": []
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
