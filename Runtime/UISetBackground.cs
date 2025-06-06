@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace UnityEssentials
 {
-    public class UISetBackground : BaseScriptComponent<VisualElement>
+    public class UISetBackground : BaseScriptComponent
     {
         [Header("Background Settings")]
         public Color BackgroundColor = Color.white;

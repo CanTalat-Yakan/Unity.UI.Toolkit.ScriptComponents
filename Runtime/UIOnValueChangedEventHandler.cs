@@ -51,24 +51,24 @@ namespace UnityEssentials
     [AddComponentMenu("UI Toolkit/UI On Value Changed Event Handler")]
     public class UIOnValueChangedEventHandler : BaseScriptComponent
     {
-        [SerializeField, HideInInspector] public UIElementType _uiType;
+        [HideInInspector] public UIElementType UIType;
 #if UNITY_EDITOR
-        public void Update() => _uiType = Type;
+        public void Update() => UIType = Type;
 #endif
 
-        [If("_uiType", UIElementType.TextElement)]
+        [If("UIType", UIElementType.TextElement)]
         public TextFieldEvents TextFieldEvents;
-        [If("_uiType", UIElementType.Label)]
+        [If("UIType", UIElementType.Label)]
         public LabelEvents LabelEvents;
-        [If("_uiType", UIElementType.Slider)]
+        [If("UIType", UIElementType.Slider)]
         public SliderEvents SliderEvents;
-        [If("_uiType", UIElementType.SliderInt)]
+        [If("UIType", UIElementType.SliderInt)]
         public SliderIntEvents SliderIntEvents;
-        [If("_uiType", UIElementType.DropdownField)]
+        [If("UIType", UIElementType.DropdownField)]
         public DropdownFieldEvents DropdownFieldEvents;
-        [If("_uiType", UIElementType.Foldout)]
+        [If("UIType", UIElementType.Foldout)]
         public FoldoutEvents FoldoutEvents;
-        [IfNot("_uiType", 
+        [IfNot("UIType", 
             UIElementType.TextElement, 
             UIElementType.Label, 
             UIElementType.Slider, 
