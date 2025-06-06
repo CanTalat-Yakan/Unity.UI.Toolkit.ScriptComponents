@@ -56,25 +56,25 @@ namespace UnityEssentials
         public void Update() => _uiType = Type;
 #endif
 
-        [If("_uiType", (int)UIElementType.TextElement)]
+        [If("_uiType", UIElementType.TextElement)]
         public TextFieldEvents TextFieldEvents;
-        [If("_uiType", (int)UIElementType.Label)]
+        [If("_uiType", UIElementType.Label)]
         public LabelEvents LabelEvents;
-        [If("_uiType", (int)UIElementType.Slider)]
+        [If("_uiType", UIElementType.Slider)]
         public SliderEvents SliderEvents;
-        [If("_uiType", (int)UIElementType.SliderInt)]
+        [If("_uiType", UIElementType.SliderInt)]
         public SliderIntEvents SliderIntEvents;
-        [If("_uiType", (int)UIElementType.DropdownField)]
+        [If("_uiType", UIElementType.DropdownField)]
         public DropdownFieldEvents DropdownFieldEvents;
-        [If("_uiType", (int)UIElementType.Foldout)]
+        [If("_uiType", UIElementType.Foldout)]
         public FoldoutEvents FoldoutEvents;
         [IfNot("_uiType", 
-            (int)UIElementType.TextElement, 
-            (int)UIElementType.Label, 
-            (int)UIElementType.Slider, 
-            (int)UIElementType.SliderInt, 
-            (int)UIElementType.DropdownField,
-            (int)UIElementType.Foldout)]
+            UIElementType.TextElement, 
+            UIElementType.Label, 
+            UIElementType.Slider, 
+            UIElementType.SliderInt, 
+            UIElementType.DropdownField,
+            UIElementType.Foldout)]
         [Info(MessageType.Warning)]
         public string Warning = "UI OnValueChanged EventHandler only supports the following element types: " +
             "TextElement, Label, Slider, SliderInt, DropdownField, and Foldout.";
