@@ -62,11 +62,8 @@ namespace UnityEssentials
             if (!HasElements)
                 return;
 
-            foreach (var element in LinkedElements)
+            IterateLinkedElements(element =>
             {
-                if (element == null)
-                    continue;
-
                 if (ClickEvents.OnClickEvent != null || ClickEvents.OnClick != null)
                     element.RegisterCallback<ClickEvent>(onClick);
 
@@ -88,7 +85,7 @@ namespace UnityEssentials
                     element.RegisterCallback<FocusEvent>(onFocus);
                 if (FocusEvents.OnBlurEvent != null)
                     element.RegisterCallback<BlurEvent>(onBlur);
-            }
+            });
         }
 
         private void UnregisterEvents()
@@ -96,11 +93,8 @@ namespace UnityEssentials
             if (!HasElements)
                 return;
 
-            foreach (var element in LinkedElements)
+            IterateLinkedElements(element =>
             {
-                if (element == null)
-                    continue;
-
                 if (ClickEvents.OnClickEvent != null || ClickEvents.OnClick != null)
                     element.UnregisterCallback<ClickEvent>(onClick);
 
@@ -122,7 +116,7 @@ namespace UnityEssentials
                     element.UnregisterCallback<FocusEvent>(onFocus);
                 if (FocusEvents.OnBlurEvent != null)
                     element.UnregisterCallback<BlurEvent>(onBlur);
-            }
+            });
         }
 
         // Click
