@@ -57,6 +57,9 @@ namespace UnityEssentials
         private void OnDisable() =>
             UnregisterEvents();
 
+        private void OnDestroy() =>
+            UnregisterEvents();
+
         private void RegisterEvents()
         {
             if (!HasElements)
