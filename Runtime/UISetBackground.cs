@@ -16,9 +16,8 @@ namespace UnityEssentials
         {
             IterateLinkedElements(element =>
             {
-                if (BackgroundTexture != null)
-                    element.style.backgroundImage = new StyleBackground(BackgroundTexture);
-                else element.style.backgroundColor = BackgroundColor;
+                element.SetBackgroundImage(BackgroundTexture);
+                element.SetBackgroundColor(BackgroundColor);
             });
         }
     }

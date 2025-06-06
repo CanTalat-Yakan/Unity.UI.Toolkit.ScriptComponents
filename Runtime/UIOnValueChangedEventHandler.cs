@@ -68,6 +68,16 @@ namespace UnityEssentials
         public DropdownFieldEvents DropdownFieldEvents;
         [If("_uiType", (int)UIElementType.Foldout)]
         public FoldoutEvents FoldoutEvents;
+        [IfNot("_uiType", 
+            (int)UIElementType.TextElement, 
+            (int)UIElementType.Label, 
+            (int)UIElementType.Slider, 
+            (int)UIElementType.SliderInt, 
+            (int)UIElementType.DropdownField,
+            (int)UIElementType.Foldout)]
+        [Info(MessageType.Warning)]
+        public string Warning = "UI OnValueChanged EventHandler only supports the following element types: " +
+            "TextElement, Label, Slider, SliderInt, DropdownField, and Foldout.";
 
         private void OnEnable() =>
             RegisterEvents();
