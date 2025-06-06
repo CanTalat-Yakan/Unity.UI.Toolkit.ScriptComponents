@@ -55,6 +55,7 @@ namespace UnityEssentials
 #if UNITY_EDITOR
         public void Update() => _uiType = Type;
 #endif
+
         [If("_uiType", (int)UIElementType.TextElement)]
         public TextFieldEvents TextFieldEvents;
         [If("_uiType", (int)UIElementType.Label)]

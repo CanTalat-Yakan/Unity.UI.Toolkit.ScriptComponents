@@ -43,9 +43,16 @@ namespace UnityEssentials
         public UnityEvent OnBlur;
     }
 
+    [ExecuteAlways]
     [AddComponentMenu("UI Toolkit/UI Event Handler")]
     public class UIEventHandler : BaseScriptComponent<VisualElement>
     {
+        [SerializeField, HideInInspector] public UIElementType _uiType;
+#if UNITY_EDITOR
+        public void Update() => _uiType = Type;
+#endif
+
+        [If("_uiType", (int)UIElementType.Button)]
         public ClickEvents ClickEvents;
         public KeyEvents KeyEvents;
         public PointerEvents PointerEvents;
