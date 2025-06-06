@@ -49,7 +49,7 @@ namespace UnityEssentials
 
     [ExecuteAlways]
     [AddComponentMenu("UI Toolkit/UI On Value Changed Event Handler")]
-    public class UIOnValueChangedEventHandler : BaseScriptComponent<VisualElement>
+    public class UIOnValueChangedEventHandler : BaseScriptComponent
     {
         [SerializeField, HideInInspector] public UIElementType _uiType;
 #if UNITY_EDITOR
