@@ -6,23 +6,24 @@ using UnityEngine.UIElements;
 namespace UnityEssentials
 {
     [Serializable]
-    public class OnFocusEvents
+    public class ClickEvents
     {
         public bool Enable = false;
-        public UnityEvent<FocusEvent> OnFocusWithEvent;
-        public UnityEvent OnFocus;
-        public UnityEvent<BlurEvent> OnBlurWithEvent;
-        public UnityEvent OnBlur;
 
+        [Space]
+        public UnityEvent<ClickEvent> OnClickEvent;
+        public UnityEvent OnClick;
     }
 
     [Serializable]
     public class KeyEvents
     {
         public bool Enable = false;
-        public UnityEvent<KeyDownEvent> OnKeyDownWithEvent;
+
+        [Space]
+        public UnityEvent<KeyDownEvent> OnKeyDownEvent;
         public UnityEvent<KeyCode> OnKeyDown;
-        public UnityEvent<KeyUpEvent> OnKeyUpWithEvent;
+        public UnityEvent<KeyUpEvent> OnKeyUpEvent;
         public UnityEvent<KeyCode> OnKeyUp;
     }
 
@@ -30,31 +31,37 @@ namespace UnityEssentials
     public class PointerEvents
     {
         public bool Enable = false;
-        public UnityEvent<PointerDownEvent> OnPointerDownWithEvent;
+
+        [Space]
+        public UnityEvent<PointerDownEvent> OnPointerDownEvent;
         public UnityEvent<Vector3> OnPointerDown;
-        public UnityEvent<PointerUpEvent> OnPointerUpWithEvent;
+        public UnityEvent<PointerUpEvent> OnPointerUpEvent;
         public UnityEvent<Vector3> OnPointerUp;
-        public UnityEvent<PointerEnterEvent> OnPointerEnterWithEvent;
+        public UnityEvent<PointerEnterEvent> OnPointerEnterEvent;
         public UnityEvent<Vector3> OnPointerEnter;
-        public UnityEvent<PointerLeaveEvent> OnPointerLeaveWithEvent;
+        public UnityEvent<PointerLeaveEvent> OnPointerLeaveEvent;
         public UnityEvent<Vector3> OnPointerLeave;
     }
 
     [Serializable]
-    public class ClickEvents
+    public class OnFocusEvents
     {
         public bool Enable = false;
-        public UnityEvent<ClickEvent> OnClickWithEvent;
-        public UnityEvent OnClick;
+
+        [Space]
+        public UnityEvent<FocusEvent> OnFocusEvent;
+        public UnityEvent OnFocus;
+        public UnityEvent<BlurEvent> OnBlurEvent;
+        public UnityEvent OnBlur;
     }
 
     [AddComponentMenu("UI Toolkit/UI Event Handler")]
     public class UIEventHandler : BaseScriptComponent<VisualElement>
     {
-        public OnFocusEvents FocusEvents;
+        public ClickEvents ClickEvents;
         public KeyEvents KeyEvents;
         public PointerEvents PointerEvents;
-        public ClickEvents ClickEvents;
+        public OnFocusEvents FocusEvents;
 
         private void OnEnable() =>
             RegisterEvents();
@@ -72,37 +79,37 @@ namespace UnityEssentials
                 if (element == null)
                     continue;
 
-                if (FocusEvents.Enable)
-                {
-                    if (FocusEvents.OnFocusWithEvent != null) 
-                        element.RegisterCallback<FocusEvent>(onFocus);
-                    if (FocusEvents.OnBlurWithEvent != null) 
-                        element.RegisterCallback<BlurEvent>(onBlur);
-                }
+                if (ClickEvents.Enable)
+                    if (ClickEvents.OnClickEvent != null || ClickEvents.OnClick != null)
+                        element.RegisterCallback<ClickEvent>(onClick);
 
                 if (KeyEvents.Enable)
                 {
-                    if (KeyEvents.OnKeyDownWithEvent != null || KeyEvents.OnKeyDown != null) 
+                    if (KeyEvents.OnKeyDownEvent != null || KeyEvents.OnKeyDown != null) 
                         element.RegisterCallback<KeyDownEvent>(onKeyDown);
-                    if (KeyEvents.OnKeyUpWithEvent != null || KeyEvents.OnKeyUp != null) 
+                    if (KeyEvents.OnKeyUpEvent != null || KeyEvents.OnKeyUp != null) 
                         element.RegisterCallback<KeyUpEvent>(onKeyUp);
                 }
 
                 if (PointerEvents.Enable)
                 {
-                    if (PointerEvents.OnPointerDownWithEvent != null || PointerEvents.OnPointerDown != null) 
+                    if (PointerEvents.OnPointerDownEvent != null || PointerEvents.OnPointerDown != null) 
                         element.RegisterCallback<PointerDownEvent>(onPointerDown);
-                    if (PointerEvents.OnPointerUpWithEvent != null || PointerEvents.OnPointerUp != null) 
+                    if (PointerEvents.OnPointerUpEvent != null || PointerEvents.OnPointerUp != null) 
                         element.RegisterCallback<PointerUpEvent>(onPointerUp);
-                    if (PointerEvents.OnPointerEnterWithEvent != null || PointerEvents.OnPointerEnter != null) 
+                    if (PointerEvents.OnPointerEnterEvent != null || PointerEvents.OnPointerEnter != null) 
                         element.RegisterCallback<PointerEnterEvent>(onPointerEnter);
-                    if (PointerEvents.OnPointerLeaveWithEvent != null || PointerEvents.OnPointerLeave != null) 
+                    if (PointerEvents.OnPointerLeaveEvent != null || PointerEvents.OnPointerLeave != null) 
                         element.RegisterCallback<PointerLeaveEvent>(onPointerLeave);
                 }
 
-                if (ClickEvents.Enable)
-                    if (ClickEvents.OnClickWithEvent != null || ClickEvents.OnClick != null) 
-                        element.RegisterCallback<ClickEvent>(onClick);
+                if (FocusEvents.Enable)
+                {
+                    if (FocusEvents.OnFocusEvent != null)
+                        element.RegisterCallback<FocusEvent>(onFocus);
+                    if (FocusEvents.OnBlurEvent != null)
+                        element.RegisterCallback<BlurEvent>(onBlur);
+                }
             }
         }
 
@@ -116,96 +123,96 @@ namespace UnityEssentials
                 if (element == null)
                     continue;
 
-                if (FocusEvents.Enable)
-                {
-                    if (FocusEvents.OnFocusWithEvent != null) 
-                        element.UnregisterCallback<FocusEvent>(onFocus);
-                    if (FocusEvents.OnBlurWithEvent != null) 
-                        element.UnregisterCallback<BlurEvent>(onBlur);
-                }
+                if (ClickEvents.Enable)
+                    if (ClickEvents.OnClickEvent != null || ClickEvents.OnClick != null)
+                        element.UnregisterCallback<ClickEvent>(onClick);
 
                 if (KeyEvents.Enable)
                 {
-                    if (KeyEvents.OnKeyDownWithEvent != null || KeyEvents.OnKeyDown != null) 
+                    if (KeyEvents.OnKeyDownEvent != null || KeyEvents.OnKeyDown != null) 
                         element.UnregisterCallback<KeyDownEvent>(onKeyDown);
-                    if (KeyEvents.OnKeyUpWithEvent != null || KeyEvents.OnKeyUp != null) 
+                    if (KeyEvents.OnKeyUpEvent != null || KeyEvents.OnKeyUp != null) 
                         element.UnregisterCallback<KeyUpEvent>(onKeyUp);
                 }
 
                 if (PointerEvents.Enable)
                 {
-                    if (PointerEvents.OnPointerDownWithEvent != null || PointerEvents.OnPointerDown != null) 
+                    if (PointerEvents.OnPointerDownEvent != null || PointerEvents.OnPointerDown != null) 
                         element.UnregisterCallback<PointerDownEvent>(onPointerDown);
-                    if (PointerEvents.OnPointerUpWithEvent != null || PointerEvents.OnPointerUp != null) 
+                    if (PointerEvents.OnPointerUpEvent != null || PointerEvents.OnPointerUp != null) 
                         element.UnregisterCallback<PointerUpEvent>(onPointerUp);
-                    if (PointerEvents.OnPointerEnterWithEvent != null || PointerEvents.OnPointerEnter != null) 
+                    if (PointerEvents.OnPointerEnterEvent != null || PointerEvents.OnPointerEnter != null) 
                         element.UnregisterCallback<PointerEnterEvent>(onPointerEnter);
-                    if (PointerEvents.OnPointerLeaveWithEvent != null || PointerEvents.OnPointerLeave != null) 
+                    if (PointerEvents.OnPointerLeaveEvent != null || PointerEvents.OnPointerLeave != null) 
                         element.UnregisterCallback<PointerLeaveEvent>(onPointerLeave);
                 }
 
-                if (ClickEvents.Enable)
-                    if (ClickEvents.OnClickWithEvent != null || ClickEvents.OnClick != null) 
-                        element.UnregisterCallback<ClickEvent>(onClick);
+                if (FocusEvents.Enable)
+                {
+                    if (FocusEvents.OnFocusEvent != null)
+                        element.UnregisterCallback<FocusEvent>(onFocus);
+                    if (FocusEvents.OnBlurEvent != null)
+                        element.UnregisterCallback<BlurEvent>(onBlur);
+                }
             }
         }
 
-        // Focus
-        private void onFocus(FocusEvent evt)
+        // Click
+        private void onClick(ClickEvent evt)
         {
-            FocusEvents.OnFocusWithEvent?.Invoke(evt);
-            FocusEvents.OnFocus?.Invoke();
-        }
-
-        private void onBlur(BlurEvent evt)
-        {
-            FocusEvents.OnBlurWithEvent?.Invoke(evt);
-            FocusEvents.OnBlur?.Invoke();
+            ClickEvents.OnClickEvent?.Invoke(evt);
+            ClickEvents.OnClick?.Invoke();
         }
 
         // Key
         private void onKeyDown(KeyDownEvent evt)
         {
-            KeyEvents.OnKeyDownWithEvent?.Invoke(evt);
+            KeyEvents.OnKeyDownEvent?.Invoke(evt);
             KeyEvents.OnKeyDown?.Invoke(evt.keyCode);
         }
 
         private void onKeyUp(KeyUpEvent evt)
         {
-            KeyEvents.OnKeyUpWithEvent?.Invoke(evt);
+            KeyEvents.OnKeyUpEvent?.Invoke(evt);
             KeyEvents.OnKeyUp?.Invoke(evt.keyCode);
         }
 
         // Pointer
         private void onPointerDown(PointerDownEvent evt)
         {
-            PointerEvents.OnPointerDownWithEvent?.Invoke(evt);
+            PointerEvents.OnPointerDownEvent?.Invoke(evt);
             PointerEvents.OnPointerDown?.Invoke(evt.position);
         }
 
         private void onPointerUp(PointerUpEvent evt)
         {
-            PointerEvents.OnPointerUpWithEvent?.Invoke(evt);
+            PointerEvents.OnPointerUpEvent?.Invoke(evt);
             PointerEvents.OnPointerUp?.Invoke(evt.position);
         }
 
         private void onPointerEnter(PointerEnterEvent evt)
         {
-            PointerEvents.OnPointerEnterWithEvent?.Invoke(evt);
+            PointerEvents.OnPointerEnterEvent?.Invoke(evt);
             PointerEvents.OnPointerEnter?.Invoke(evt.position);
         }
 
         private void onPointerLeave(PointerLeaveEvent evt)
         {
-            PointerEvents.OnPointerLeaveWithEvent?.Invoke(evt);
+            PointerEvents.OnPointerLeaveEvent?.Invoke(evt);
             PointerEvents.OnPointerLeave?.Invoke(evt.position);
         }
 
-        // Click
-        private void onClick(ClickEvent evt)
+        // Focus
+        private void onFocus(FocusEvent evt)
         {
-            ClickEvents.OnClickWithEvent?.Invoke(evt);
-            ClickEvents.OnClick?.Invoke();
+            FocusEvents.OnFocusEvent?.Invoke(evt);
+            FocusEvents.OnFocus?.Invoke();
+        }
+
+        private void onBlur(BlurEvent evt)
+        {
+            FocusEvents.OnBlurEvent?.Invoke(evt);
+            FocusEvents.OnBlur?.Invoke();
         }
     }
 }
