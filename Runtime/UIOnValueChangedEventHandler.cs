@@ -93,9 +93,9 @@ namespace UnityEssentials
             if (!HasElements)
                 return;
 
-            IterateLinkedElements(element =>
+            IterateLinkedElements(e =>
             {
-                switch (element)
+                switch (e)
                 {
                     case TextField textField:
                         textField.RegisterValueChangedCallback(OnTextFieldValueChanged);
@@ -124,9 +124,9 @@ namespace UnityEssentials
             if (!HasElements)
                 return;
 
-            IterateLinkedElements(element =>
+            IterateLinkedElements(e =>
             {
-                switch (element)
+                switch (e)
                 {
                     case TextField textField:
                         textField.UnregisterValueChangedCallback(OnTextFieldValueChanged);
