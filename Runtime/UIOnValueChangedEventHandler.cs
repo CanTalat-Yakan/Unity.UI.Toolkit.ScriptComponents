@@ -150,40 +150,40 @@ namespace UnityEssentials
             });
         }
 
-        private void OnTextFieldValueChanged(ChangeEvent<string> evt)
+        private void OnTextFieldValueChanged(ChangeEvent<string> e)
         {
-            TextFieldEvents.OnTextFieldChanged?.Invoke(evt.newValue);
-            TextFieldEvents.OnTextFieldChangedEvent?.Invoke(evt);
+            TextFieldEvents.OnTextFieldChanged?.Invoke(e.newValue);
+            TextFieldEvents.OnTextFieldChangedEvent?.Invoke(e);
         }
 
-        private void OnLabelValueChanged(ChangeEvent<string> evt)
+        private void OnLabelValueChanged(ChangeEvent<string> e)
         {
-            LabelEvents.OnLabelChanged?.Invoke(evt.newValue);
-            LabelEvents.OnLabelChangedEvent?.Invoke(evt);
+            LabelEvents.OnLabelChanged?.Invoke(e.newValue);
+            LabelEvents.OnLabelChangedEvent?.Invoke(e);
         }
 
-        private void OnSliderValueChanged(ChangeEvent<float> evt)
+        private void OnSliderValueChanged(ChangeEvent<float> e)
         {
-            SliderEvents.OnSliderChanged?.Invoke(evt.newValue);
-            SliderEvents.OnSliderChangedEvent?.Invoke(evt);
+            SliderEvents.OnSliderChanged?.Invoke(e.newValue);
+            SliderEvents.OnSliderChangedEvent?.Invoke(e);
         }
 
-        private void OnSliderIntValueChanged(ChangeEvent<int> evt)
+        private void OnSliderIntValueChanged(ChangeEvent<int> e)
         {
-            SliderIntEvents.OnSliderIntChanged?.Invoke(evt.newValue);
-            SliderIntEvents.OnSliderIntChangedEvent?.Invoke(evt);
+            SliderIntEvents.OnSliderIntChanged?.Invoke(e.newValue);
+            SliderIntEvents.OnSliderIntChangedEvent?.Invoke(e);
         }
 
-        private void OnDropdownFieldValueChanged(ChangeEvent<string> evt)
+        private void OnDropdownFieldValueChanged(ChangeEvent<string> e)
         {
-            DropdownFieldEvents.OnDropdownFieldChanged?.Invoke(evt.newValue);
-            DropdownFieldEvents.OnDropdownFieldChangedEvent?.Invoke(evt);
+            DropdownFieldEvents.OnDropdownFieldChanged?.Invoke(e.newValue);
+            DropdownFieldEvents.OnDropdownFieldChangedEvent?.Invoke(e);
         }
 
-        private void OnFoldoutValueChanged(ChangeEvent<bool> evt)
+        private void OnFoldoutValueChanged(ChangeEvent<bool> e)
         {
-            FoldoutEvents.OnFoldoutChanged?.Invoke(evt.newValue);
-            FoldoutEvents.OnFoldoutChangedEvent?.Invoke(evt);
+            FoldoutEvents.OnFoldoutChanged?.Invoke(e.newValue);
+            FoldoutEvents.OnFoldoutChangedEvent?.Invoke(e);
         }
     }
 }

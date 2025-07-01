@@ -124,60 +124,60 @@ namespace UnityEssentials
         }
 
         // Click
-        private void OnClick(ClickEvent evt)
+        private void OnClick(ClickEvent e)
         {
-            ClickEvents.OnClickEvent?.Invoke(evt);
+            ClickEvents.OnClickEvent?.Invoke(e);
             ClickEvents.OnClick?.Invoke();
         }
 
         // Key
-        private void OnKeyDown(KeyDownEvent evt)
+        private void OnKeyDown(KeyDownEvent e)
         {
-            KeyEvents.OnKeyDownEvent?.Invoke(evt);
-            KeyEvents.OnKeyDown?.Invoke(evt.keyCode);
+            KeyEvents.OnKeyDownEvent?.Invoke(e);
+            KeyEvents.OnKeyDown?.Invoke(e.keyCode);
         }
 
-        private void OnKeyUp(KeyUpEvent evt)
+        private void OnKeyUp(KeyUpEvent e)
         {
-            KeyEvents.OnKeyUpEvent?.Invoke(evt);
-            KeyEvents.OnKeyUp?.Invoke(evt.keyCode);
+            KeyEvents.OnKeyUpEvent?.Invoke(e);
+            KeyEvents.OnKeyUp?.Invoke(e.keyCode);
         }
 
         // Pointer
-        private void OnPointerDown(PointerDownEvent evt)
+        private void OnPointerDown(PointerDownEvent e)
         {
-            PointerEvents.OnPointerDownEvent?.Invoke(evt);
-            PointerEvents.OnPointerDown?.Invoke(evt.position);
+            PointerEvents.OnPointerDownEvent?.Invoke(e);
+            PointerEvents.OnPointerDown?.Invoke(e.position);
         }
 
-        private void OnPointerUp(PointerUpEvent evt)
+        private void OnPointerUp(PointerUpEvent e)
         {
-            PointerEvents.OnPointerUpEvent?.Invoke(evt);
-            PointerEvents.OnPointerUp?.Invoke(evt.position);
+            PointerEvents.OnPointerUpEvent?.Invoke(e);
+            PointerEvents.OnPointerUp?.Invoke(e.position);
         }
 
-        private void OnPointerEnter(PointerEnterEvent evt)
+        private void OnPointerEnter(PointerEnterEvent e)
         {
-            PointerEvents.OnPointerEnterEvent?.Invoke(evt);
-            PointerEvents.OnPointerEnter?.Invoke(evt.position);
+            PointerEvents.OnPointerEnterEvent?.Invoke(e);
+            PointerEvents.OnPointerEnter?.Invoke(e.position);
         }
 
-        private void OnPointerLeave(PointerLeaveEvent evt)
+        private void OnPointerLeave(PointerLeaveEvent e)
         {
-            PointerEvents.OnPointerLeaveEvent?.Invoke(evt);
-            PointerEvents.OnPointerLeave?.Invoke(evt.position);
+            PointerEvents.OnPointerLeaveEvent?.Invoke(e);
+            PointerEvents.OnPointerLeave?.Invoke(e.position);
         }
 
         // Focus
-        private void OnFocus(FocusEvent evt)
+        private void OnFocus(FocusEvent e)
         {
-            FocusEvents.OnFocusEvent?.Invoke(evt);
+            FocusEvents.OnFocusEvent?.Invoke(e);
             FocusEvents.OnFocus?.Invoke();
         }
 
-        private void OnBlur(BlurEvent evt)
+        private void OnBlur(BlurEvent e)
         {
-            FocusEvents.OnBlurEvent?.Invoke(evt);
+            FocusEvents.OnBlurEvent?.Invoke(e);
             FocusEvents.OnBlur?.Invoke();
         }
     }
