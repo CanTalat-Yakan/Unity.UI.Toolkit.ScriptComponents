@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace UnityEssentials
 {
-    public class UISetLabel : BaseScriptComponent<Label>
+    public class UISetLabel : UIScriptComponentBase<Label>
     {
         [SerializeField] private string _labelText = "Default Label Text";
         public string LabelText

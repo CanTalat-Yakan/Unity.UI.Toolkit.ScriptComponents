@@ -45,7 +45,7 @@ namespace UnityEssentials
 
     [ExecuteAlways]
     [AddComponentMenu("UI Toolkit/UI Event Handler")]
-    public class UIEventHandler : BaseScriptComponent
+    public class UIEventHandler : UIScriptComponentBase
     {
         public ClickEvents ClickEvents;
         public KeyEvents KeyEvents;

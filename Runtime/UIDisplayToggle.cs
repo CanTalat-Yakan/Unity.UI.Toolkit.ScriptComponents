@@ -3,7 +3,7 @@ using UnityEngine;
 namespace UnityEssentials
 {
     [AddComponentMenu("UI Toolkit/UI Display Toggle")]
-    public class UIDisplayToggle : BaseScriptComponent
+    public class UIDisplayToggle : UIScriptComponentBase
     {
         [SerializeField] private bool _displayOnStart = true;
 

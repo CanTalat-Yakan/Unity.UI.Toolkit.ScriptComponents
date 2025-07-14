@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace UnityEssentials
 {
-    public class UISetBackground : BaseScriptComponent
+    public class UISetBackground : UIScriptComponentBase
     {
         [Header("Background Settings")]
         public Color BackgroundColor = Color.white;
