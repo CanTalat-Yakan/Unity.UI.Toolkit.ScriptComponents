@@ -56,19 +56,19 @@ namespace UnityEssentials
         public void Update() => UIType = Type;
 #endif
 
-        [If("UIType", UIElementType.TextElement)]
+        [ShowIf("UIType", UIElementType.TextElement)]
         public TextFieldEvents TextFieldEvents;
-        [If("UIType", UIElementType.Label)]
+        [ShowIf("UIType", UIElementType.Label)]
         public LabelEvents LabelEvents;
-        [If("UIType", UIElementType.Slider)]
+        [ShowIf("UIType", UIElementType.Slider)]
         public SliderEvents SliderEvents;
-        [If("UIType", UIElementType.SliderInt)]
+        [ShowIf("UIType", UIElementType.SliderInt)]
         public SliderIntEvents SliderIntEvents;
-        [If("UIType", UIElementType.DropdownField)]
+        [ShowIf("UIType", UIElementType.DropdownField)]
         public DropdownFieldEvents DropdownFieldEvents;
-        [If("UIType", UIElementType.Foldout)]
+        [ShowIf("UIType", UIElementType.Foldout)]
         public FoldoutEvents FoldoutEvents;
-        [IfNot("UIType", 
+        [ShowIfNot("UIType", 
             UIElementType.TextElement, 
             UIElementType.Label, 
             UIElementType.Slider, 
