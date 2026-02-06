@@ -1,7 +1,7 @@
 {
-  "name": "com.unityessentials.uitoolkitscriptcomponents",
-  "version": "1.0.0",
-  "displayName": "Unity UI Toolkit ScriptComponents",
+  "name": "com.unityessentials.ui.toolkit.scriptcomponents",
+  "version": "2.0.0",
+  "displayName": "UI Toolkit ScriptComponents",
   "description": "This is a part of the UnityEssentials Ecosystem",
   "unity": "6000.0",
   "unityRelease": "",
